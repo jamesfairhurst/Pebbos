@@ -32,7 +32,7 @@ ajax(
 	function(data) {
 		// Parse name, locations and coordinators from topology xml
 		// Half-inched from https://github.com/owlandgiraffe/Sobble
-		var names = data.match(/>([A-Za-z0-9s ]+?)<\/ZonePlayer>/gm),
+		var names = data.match(/>([A-Za-z0-9s\- ]+?)<\/ZonePlayer>/gm),
 			locations = data.match(/location='(.+?)'/gm),
 			coordinators = data.match(/coordinator='(.+?)'/gm);
 
