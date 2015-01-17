@@ -46,9 +46,17 @@ ajax(
 					coordinator: coordinators[i].match(/'(.+?)'/)[0]
 				};
 
-				// Not a bridge and marked as a coordinator
+				// Skip Bridge
+				if (loc.name.indexOf("BRIDGE") !== -1) {
+					continue;
+				// Skip Boost - can't test this
+				} else if (loc.name.indexOf("BOOST") !== -1) {
+					continue;
+				}
+
+				// Marked as a coordinator
 				// Some players are marked as false if they're grouped 
-				if (loc.name.indexOf("BRIDGE") == -1 && loc.coordinator.indexOf('true') > -1) {
+				if (loc.coordinator.indexOf('true') > -1) {
 					speakersArray.push({title: loc.name, subtitle: loc.ip});
 				}
 			}
